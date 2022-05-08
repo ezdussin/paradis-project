@@ -1,0 +1,73 @@
+header{
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+    background: #e5e5e5;
+    width: 100%;
+}
+
+h1{
+    font-size: 2rem;
+}
+
+header a, header nav{
+    color: black;
+    text-decoration: none;
+    margin: auto 0;
+}
+
+/* Login Header */
+.login-header{
+    margin: auto 0;
+}
+
+.login-header a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.25rem;
+}
+
+.login-header img{
+    border-radius: 50%;
+}
+
+.login-header a:hover{
+    text-decoration: underline;
+}
+
+/* Nav */
+nav li{
+    position: relative;
+    list-style-type: none;
+    float: left;
+}
+
+.main-li{
+    margin: 0 2rem;
+}
+
+nav a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.25rem;
+}
+
+nav a:hover{
+    text-decoration: underline;
+}
+
+nav li ul{
+    position: absolute;
+    display: none;
+    background: #e5e5e5;
+    padding: .5rem;
+    width: 200px;
+}
+
+nav li ul li{
+    margin: .25rem auto;
+}
+
+nav li:hover ul{
+    display: block;
+}
