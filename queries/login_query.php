@@ -14,7 +14,10 @@ $user = $result->fetch_assoc();
 
 mysqli_free_result($result);
 
-if(isset($user)){
+if(isset($_COOKIE['userID'])){
+    $_SESSION['loginErrorMsg'] = 'Você já está logado!';
+    header("Location: http://localhost/login.php");
+} elseif(isset($user)){
     setcookie("userID", $user['id'], time() + (86400 * 30), "/");
     header("Location: http://localhost/account.php");
 } else{

@@ -2,8 +2,12 @@
 
 include_once("./db/mysqli.php");
 
+session_start();
+
 if(isset($_COOKIE['userID'])){
     $userID = $_COOKIE['userID'];
+    unset($_SESSION['loginErrorMsg']);
+    unset($_SESSION['registerErrorMsg']);
 } else{
     header('Location: http://localhost/login.php');
 }
@@ -37,7 +41,6 @@ $user = $result->fetch_assoc();
                 <div class="right-account">
                     <span>Nome: <?php echo isset($user['name']) ? $user['name'] : ''?></span><br>
                     <span>Email: <?php echo isset($user['email']) ? $user['email'] : ''?></span><br>
-                    <span>Senha: <?php echo isset($user['password']) ? $user['password'] : ''?></span><br>
                     <a href="./queries/logout_query.php">LogOut</a>
                 </div>
             </div>
@@ -46,5 +49,4 @@ $user = $result->fetch_assoc();
         include_once './elements/php/Footer.php'
         ?>
     </body>
-    <script src="./script.js"></script>
 </html>

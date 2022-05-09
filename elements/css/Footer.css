@@ -1,5 +1,5 @@
 footer{
-    background-color: #e5e5e5;
+    background-color: var(--dark-blue);
     padding: 2rem 20%;
 }
 
@@ -13,7 +13,7 @@ footer{
 
 .links-container li a{
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .links-container li a:hover{
@@ -21,6 +21,7 @@ footer{
 }
 
 .links-container h4{
+    color: white;
     margin-bottom: .5rem;
 }
 
@@ -33,24 +34,40 @@ hr{
     padding: 0 30%;
 }
 
+.social-media-container img{
+    filter: invert(97%) sepia(98%) saturate(14%) hue-rotate(55deg) brightness(107%) contrast(100%);
+}
+
 .footer-register-container{
     display: flex;
     justify-content: center;
 }
 
 .footer-register-button{
-    background-color: red;
+    background-color: white;
     border-radius: 40px;
     padding: .5rem 2rem;
     margin: 0 1rem;
     text-decoration: none;
 }
 
+.footer-register-button{
+    color: var(--dark-blue);
+}
+
 .footer-register-block span, .footer-register-block a{
+    color: white;
     font-size: 1.5rem;
     font-weight: 800;
 }
 
 .footer-register-block a{
+    color: var(--dark-blue);
+}
+
+.copyright{
+    font-size: .75rem;
     color: white;
+    margin: 1rem 0;
+    text-align: right;
 }

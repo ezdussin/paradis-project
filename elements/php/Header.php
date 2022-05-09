@@ -17,28 +17,25 @@ if(isset($_COOKIE['userID'])){
 <html>
     <body>
         <header>
-        <a href="/"><h1>Paradis</h1></a>
             <nav>
+                <a href="/"><h1>Paradis</h1></a>
+                <form action="">
+                    <img src="../../svg/search.svg" alt="Lupa" width="20" height="20">
+                    <input type="text" name="search" placeholder="Pesquisar shows e eventos">
+                    <input type="submit" value="PROCURAR">
+                </form>
                 <ul>
-                    <li class="main-li"><a href="#">Eventos</a>
-                        <ul>
-                            <li><a href="#">Criar Eventos</a></li>
-                            <li><a href="#">Listar Eventos</a></li>
-                            <li><a href="#">Buscar Eventos</a></li>
-                        </ul>
-                    </li>
                     <li class="main-li"><a href="#">Sobre Nós</a></li>
                     <li class="main-li"><a href="#">Contato</a></li>
-                    <li class="main-li"><a href="#">Links</a></li>
                 </ul>
+                <div class="login-header">
+                    <a href="<?php echo isset($user['avatar']) ? './account.php' : './login.php' ?>">
+                        <img src="<?php echo isset($user['avatar']) ? 
+                        'data:image/jpg;charset=utf8;base64,'.base64_encode($user['avatar']) : 
+                        '../../svg/account.svg' ?>" alt="Account" width="40" height="40">
+                    </a>                
+                </div>
             </nav>
-            <div class="login-header">
-                <a href="<?php echo isset($user['avatar']) ? './account.php' : './login.php' ?>">
-                    <img src="<?php echo isset($user['avatar']) ? 
-                    'data:image/jpg;charset=utf8;base64,'.base64_encode($user['avatar']) : 
-                    '../../svg/account.svg' ?>" alt="Account" width="40" height="40">
-                </a>                
-            </div>
         </header>
     </body>
 </html>

@@ -66,6 +66,7 @@
                     </a>
                 </div>
             </div>
+            <p class="copyright">Grupo Platina &copy; Paradis | Todos os direitos reservados</p>
         </footer>
     </body>
 </html>
