@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" href="/elements/css/Footer.css">
+    </head>
     <body>
         <footer>
             <div class="links-container flex">
@@ -42,27 +45,27 @@
             <div class="social-media-container flex">
                 <div class="social-media-facebook">
                     <a href="#">
-                        <img src="../../svg/facebook.svg" alt="Facebook" width="40" height="40">
+                        <img src="/svg/facebook.svg" alt="Facebook" width="40" height="40">
                     </a>
                 </div>
                 <div class="social-media-instagram">
                     <a href="#">
-                        <img src="../../svg/instagram.svg" alt="Facebook" width="40" height="40">
+                        <img src="/svg/instagram.svg" alt="Instagram" width="40" height="40">
                     </a>
                 </div>
                 <div class="social-media-twitter">
                     <a href="#">
-                        <img src="../../svg/twitter.svg" alt="Facebook" width="40" height="40">
+                        <img src="/svg/twitter.svg" alt="Twitter" width="40" height="40">
                     </a>
                 </div>
                 <div class="social-media-youtube">
                     <a href="#">
-                        <img src="../../svg/youtube.svg" alt="Facebook" width="40" height="40">
+                        <img src="/svg/youtube.svg" alt="Youtube" width="40" height="40">
                     </a>
                 </div>
                 <div class="social-media-linkedin">
                     <a href="#">
-                        <img src="../../svg/linkedin.svg" alt="Facebook" width="40" height="40">
+                        <img src="/svg/linkedin.svg" alt="Linkedin" width="40" height="40">
                     </a>
                 </div>
             </div>

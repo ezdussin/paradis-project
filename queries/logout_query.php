@@ -1,4 +1,4 @@
 <?php
-setcookie('userID', null, -1, "/"); 
+setcookie("userID", null, time() - 3600, "/");
 header("Location: http://localhost/login.php");
 ?>

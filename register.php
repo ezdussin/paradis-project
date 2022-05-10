@@ -1,28 +1,32 @@
 <?php
     session_start();
+
+    if(isset($_COOKIE['userID'])){
+        unset($_SESSION['loginErrorMsg']);
+        unset($_SESSION['registerErrorMsg']);
+        header('Location: http://localhost/account.php');
+    }
 ?>
 
 <!DOCTYPE html>
 <html lang="pt">
     <head>
-        <title>Paradis | HOME</title>
+        <title>Registrar | Paradis</title>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../style.css">
-        <link rel="stylesheet" href="elements/css/Header.css">
-        <link rel="stylesheet" href="elements/css/Footer.css">
     </head>
     <body>
         <?php
         include_once './elements/php/Header.php'
         ?>
         <div class="container flex">
-            <form action="./queries/register_query.php" method='POST' enctype="multipart/form-data">
+            <form action="/queries/register_query.php" method='POST' enctype="multipart/form-data">
                 <h3>Registrar</h3>
                 <?php
                 if(isset($_SESSION['registerErrorMsg'])){
-                    if($_SESSION['registerErrorMsg']) echo 
-                    '<p class="warning" style="color: red; border: 2px solid red">'.$_SESSION['registerErrorMsg'].'</p>';
+                    echo '<p class="warning" style="color: red; border: 2px solid red;">'.$_SESSION['registerErrorMsg'].'</p>';
+                    unset($_SESSION['registerErrorMsg']);
                 }
                 ?>
                 <label for="email">Email:</label><br>

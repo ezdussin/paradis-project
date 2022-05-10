@@ -44,6 +44,8 @@ if($db->query($sql) && !$emailExists){
     $result = $db->query($sql);
     $user = $result->fetch_assoc();
 
+    
+
     setcookie("userID", $user['id'], time() + (10 * 365 * 24 * 60 * 60), "/");
     header("Location: http://localhost/account.php");
 } else{

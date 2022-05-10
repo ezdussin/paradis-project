@@ -15,24 +15,27 @@ if(isset($_COOKIE['userID'])){
 
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" href="/elements/css/Header.css">
+    </head>
     <body>
         <header>
             <nav>
                 <a href="/"><h1>Paradis</h1></a>
                 <form action="">
-                    <img src="../../svg/search.svg" alt="Lupa" width="20" height="20">
+                    <img src="/svg/search.svg" alt="Lupa" width="20" height="20">
                     <input type="text" name="search" placeholder="Pesquisar shows e eventos">
                     <input type="submit" value="PROCURAR">
                 </form>
                 <ul>
-                    <li class="main-li"><a href="#">Sobre Nós</a></li>
-                    <li class="main-li"><a href="#">Contato</a></li>
+                    <li class="main-li"><a href="#">Lojas</a></li>
+                    <li class="main-li"><a href="#">Organize</a></li>
                 </ul>
                 <div class="login-header">
-                    <a href="<?php echo isset($user['avatar']) ? './account.php' : './login.php' ?>">
+                    <a href="<?php echo isset($user['avatar']) ? '/account.php' : '/login.php' ?>">
                         <img src="<?php echo isset($user['avatar']) ? 
                         'data:image/jpg;charset=utf8;base64,'.base64_encode($user['avatar']) : 
-                        '../../svg/account.svg' ?>" alt="Account" width="40" height="40">
+                        '/svg/account.svg' ?>" alt="Account" width="40" height="40">
                     </a>                
                 </div>
             </nav>
