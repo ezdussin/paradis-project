@@ -24,7 +24,7 @@ $user = $result->fetch_assoc();
         <title>Conta | Paradis</title>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="/style.css">
     </head>
     <body>
         <?php
@@ -37,9 +37,12 @@ $user = $result->fetch_assoc();
                     <img src="<?php echo isset($user['avatar']) ? 'data:image/jpg;charset=utf8;base64,'.base64_encode($user['avatar']) : '../../svg/account.svg'; ?>" />
                 </div>
                 <div class="right-account">
-                    <span>Nome: <?php echo isset($user['name']) ? $user['name'] : ''?></span><br>
-                    <span>Email: <?php echo isset($user['email']) ? $user['email'] : ''?></span><br>
-                    <a href="./queries/logout_query.php">LogOut</a>
+                    <span>Nome: <?php echo isset($user['name']) ? $user['name'] : ''?></span>
+                    <span>Email: <?php echo isset($user['email']) ? $user['email'] : ''?></span>
+                    <a href="./queries/logout_query.php">Sair</a>
+                    <a href="./register_provider.php">Cadastrar fornecedor</a>
+                    <a href="./register_product.php">Cadastrar produto</a>
+                    <a href="./purchase_order.php">Fazer pedido de compra</a>
                 </div>
             </div>
         </div>

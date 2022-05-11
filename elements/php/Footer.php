@@ -38,7 +38,7 @@
             <div class="footer-register-container">
                 <div class="footer-register-block">
                     <span>CADASTRE-SE</span>
-                    <a class="footer-register-button" href="register.php">AQUI</a>
+                    <a class="footer-register-button" href="register_user.php">AQUI</a>
                 </div>
             </div>
             <hr>

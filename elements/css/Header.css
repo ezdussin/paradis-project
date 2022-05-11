@@ -1,7 +1,7 @@
 header{
     display: flex;
     height: 80px;
-    background: white;
+    background: var(--purple);
     width: 100%;
 }
 
