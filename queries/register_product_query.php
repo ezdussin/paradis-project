@@ -12,16 +12,17 @@ $amount = $_POST['amount'];
 $imageFileName = basename($_FILES['thumbnail']['name']);
 $imageFileType = pathinfo($imageFileName, PATHINFO_EXTENSION);
 
-$allowTypes = array('jpg', 'png', 'jpeg', 'gif');
-if(isset($_FILES['thumbnail'])){
+$allowTypes = array('jpg', 'png', 'jpeg');
+if(!empty($imageFileName)){
     if(in_array($imageFileType, $allowTypes)){
         $image = $_FILES['thumbnail']['tmp_name'];
         $imageContent = addslashes(file_get_contents($image));
     } else{
-        $errorMsg = 'Apenas arquivos jpg, png, jpeg, gif são suportados.';
-        $_SESSION['registerProductErrorMsg'] = $errorMsg;
-        $imageContent = null;
+        echo 'Apenas arquivos jpg, png, jpeg, gif são suportados.';
+        die();
     }
+} else{
+    $imageContent = null;
 }
 
 $sql = "INSERT INTO product (product_name, description, price, amount, thumbnail) VALUES

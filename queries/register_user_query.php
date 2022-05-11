@@ -12,16 +12,18 @@ $imageFileName = basename($_FILES['avatar']['name']);
 $imageFileType = pathinfo($imageFileName, PATHINFO_EXTENSION);
 
 $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
-if(isset($_FILES['avatar'])){
+if(!empty($imageFileName)){
     if(in_array($imageFileType, $allowTypes)){
         $image = $_FILES['avatar']['tmp_name'];
         $imageContent = addslashes(file_get_contents($image));
     } else{
         $errorMsg = 'Apenas arquivos jpg, png, jpeg, gif são suportados.';
         $_SESSION['registerUserErrorMsg'] = $errorMsg;
-        header('Location: http://localhost/register.php');
+        header('Location: http://localhost/register_user.php');
         die();
     }
+} else{
+    $imageContent = null;
 }
 
 $sql = "INSERT INTO users (name, email, password, avatar) VALUES
@@ -48,7 +50,7 @@ if($db->query($sql) && !$emailExists){
     header("Location: http://localhost/account.php");
 } else{
     $_SESSION['registerUserErrorMsg'] = $errorMsg;
-    header('Location: http://localhost/register.php');
+    header('Location: http://localhost/register_user.php');
 }
 
 $db->close();
