@@ -2,8 +2,6 @@
 
 include_once('../db/mysqli.php');
 
-session_start();
-
 $email = $_POST['email'];
 $name = $_POST['name'];
 $telephone = $_POST['telephone'];
@@ -20,7 +18,6 @@ $sql = "INSERT INTO provider (email, name, telephone, cnpj, address) VALUES
 if($db->query($sql)){
     echo 'Fornecedor registrado com sucesso!';
 } else{
-    $_SESSION['registerProductErrorMsg'] = $errorMsg;
     echo mysqli_error($db);
 }
 

@@ -34,8 +34,9 @@ CREATE TABLE IF NOT EXISTS purchase_order (
     id INT AUTO_INCREMENT PRIMARY KEY,
     provider_name varchar(255) NOT NULL,
     product_name varchar(255) NOT NULL,
-    total decimal(10, 2) NOT NULL,
+    amount INT NOT NULL,
     unit_price decimal(10, 2) NOT NULL,
+    total_price decimal(10, 2) NOT NULL,
     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 

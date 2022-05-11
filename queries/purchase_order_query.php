@@ -2,16 +2,14 @@
 
 include_once('../db/mysqli.php');
 
-session_start();
-
-$provider = $_POST['provider'];
+$provider_name = $_POST['provider_name'];
 $product_name = $_POST['product_name'];
 $amount = $_POST['amount'];
 $total = $_POST['total'];
 $unit_price = $_POST['unit_price'];
 
-$sql = "INSERT INTO purchase_order (provider, product_name, amount, total_price, unit_price) VALUES
-    ('".$provider."', 
+$sql = "INSERT INTO purchase_order (provider_name, product_name, amount, total_price, unit_price) VALUES
+    ('".$provider_name."', 
     '".$product_name."', 
     '".$amount."',
     '".$total."',
@@ -20,7 +18,6 @@ $sql = "INSERT INTO purchase_order (provider, product_name, amount, total_price,
 if($db->query($sql)){
     echo 'Pedido efetuado com sucesso!';
 } else{
-    $_SESSION['registerProductErrorMsg'] = $errorMsg;
     echo mysqli_error($db);
 }
 

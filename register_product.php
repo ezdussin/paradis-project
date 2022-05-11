@@ -1,11 +1,18 @@
 <?php
+    include_once("./db/mysqli.php");
+
     session_start();
 
     if(!isset($_COOKIE['userID'])){
         unset($_SESSION['loginErrorMsg']);
-        unset($_SESSION['registerErrorMsg']);
-        header('Location: http://localhost/account.php');
+        unset($_SESSION['registerUserErrorMsg']);
+        header('Location: http://localhost/login.php');
     }
+
+    $sql = "SELECT * FROM provider";
+
+    $providers = $db->query($sql);
+    $providers->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -23,20 +30,23 @@
         <div class="container flex">
             <form action="/queries/register_product_query.php" method='POST' enctype="multipart/form-data">
                 <h3>Cadastrar Produto</h3>
-                <?php
-                if(isset($_SESSION['registerUserErrorMsg'])){
-                    echo '<p class="warning" style="color: red; border: 2px solid red;">'.$_SESSION['registerUserErrorMsg'].'</p>';
-                    unset($_SESSION['registerUserErrorMsg']);
-                }
-                ?>
+                <label for="provider_id">Fornecedor:</label><br>
+                <select name="provider_id" required>
+                    <option value="" disabled hidden selected></option>
+                    <?php
+                    foreach($providers as $provider){
+                        echo '<option value="'.$provider['id'].'">'.$provider['name'].'</select>';
+                    }
+                    ?>
+                </select>
                 <label for="product_name">Produto:</label><br>
                 <input type="text" name="product_name" required><br>
                 <label for="description">Descrição:</label><br>
                 <input type="text" name="description" required><br>
                 <label for="price">Valor:</label><br>
-                <input type="number" name="price" step=".01" required><br>
+                <input type="number" name="price" min=".01" step=".01" required><br>
                 <label for="amount">Quantidade:</label><br>
-                <input type="number" name="amount" required><br>
+                <input type="number" name="amount" min="1" required><br>
                 <label for="thumbnail">Miniatura:</label><br>
                 <input type="file" name="thumbnail"><br>
                 <input type="submit" value="Cadastrar">

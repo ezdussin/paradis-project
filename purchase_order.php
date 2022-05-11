@@ -1,11 +1,23 @@
 <?php
+    include_once("./db/mysqli.php");
+
     session_start();
 
     if(!isset($_COOKIE['userID'])){
         unset($_SESSION['loginErrorMsg']);
-        unset($_SESSION['registerErrorMsg']);
-        header('Location: http://localhost/account.php');
+        unset($_SESSION['registerUserErrorMsg']);
+        header('Location: http://localhost/login.php');
     }
+
+    $provSql = "SELECT * FROM provider";
+
+    $providers = $db->query($provSql);
+    $providers->fetch_all(MYSQLI_ASSOC);
+
+    $prodSql = "SELECT * FROM product";
+
+    $products = $db->query($prodSql);
+    $products->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -21,28 +33,32 @@
         include_once './elements/php/Header.php'
         ?>
         <div class="container flex">
-            <form action="/queries/register_query.php" method='POST' enctype="multipart/form-data">
+            <form action="/queries/purchase_order_query.php" method='POST' enctype="multipart/form-data">
                 <h3>Fazer Pedido de Compra</h3>
-                <?php
-                if(isset($_SESSION['registerErrorMsg'])){
-                    echo '<p class="warning" style="color: red; border: 2px solid red;">'.$_SESSION['registerErrorMsg'].'</p>';
-                    unset($_SESSION['registerErrorMsg']);
-                }
-                ?>
                 <label for="provider_name">Fornecedor:</label><br>
-                <select name="provider_name">
-                    <!-- Opções de Fornecedores -->
+                <select name="provider_name" required>
+                    <option value="" disabled hidden selected></option>
+                    <?php
+                    foreach($providers as $provider){
+                        echo '<option value="'.$provider['name'].'">'.$provider['name'].'</select>';
+                    }
+                    ?>
                 </select>
                 <label for="product_name">Produto:</label><br>
-                <select name="product_name">
-                    <!-- Opções de Produtos -->
+                <select name="product_name" onchange="calculateTotal(<?php echo $product['price'] ?>)" required>
+                    <option value="" disabled hidden selected></option>
+                    <?php
+                    foreach($products as $product){
+                        echo '<option value="'.$product['product_name'].'">'.$product['product_name'].'</select>';
+                    }
+                    ?>
                 </select>
                 <label for="amount">Quantidade:</label><br>
-                <input type="number" name="amount" required><br>
+                <input type="number" name="amount" min="1" id="amount" onchange="calculateTotal(<?php echo $product['price'] ?>)" required><br>
                 <label for="unit_price">Preço Unitário:</label><br>
-                <input type="number" name="unit_price" readonly><br>
+                <input type="number" name="unit_price" id="unit_price" readonly><br>
                 <label for="total">Total:</label><br>
-                <input type="number" name="total" readonly><br>
+                <input type="number" name="total" id="total" readonly><br>
                 <input type="submit" value="Fazer Pedido">
             </form>
         </div>
@@ -50,4 +66,5 @@
         include_once './elements/php/Footer.php'
         ?>
     </body>
+    <script src="/script.js"></script>
 </html>

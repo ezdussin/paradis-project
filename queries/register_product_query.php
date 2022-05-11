@@ -2,8 +2,7 @@
 
 include_once('../db/mysqli.php');
 
-session_start();
-
+$provider_id = $_POST['provider_id'];
 $product_name = $_POST['product_name'];
 $description = $_POST['description'];
 $price = $_POST['price'];
@@ -25,17 +24,35 @@ if(!empty($imageFileName)){
     $imageContent = null;
 }
 
-$sql = "INSERT INTO product (product_name, description, price, amount, thumbnail) VALUES
+// Insert product
+$prodSql = "INSERT INTO product (product_name, description, price, amount, thumbnail) VALUES
     ('".$product_name."', 
     '".$description."', 
     '".$price."',
     '".$amount."',
     '".$imageContent."')";
 
-if($db->query($sql)){
-    echo 'Produto registrado com sucesso!';
+if($db->query($prodSql)){
+    echo 'Produto registrado com sucesso!<br>';
 } else{
-    $_SESSION['registerProductErrorMsg'] = $errorMsg;
+    echo mysqli_error($db);
+}
+
+// Fetch just inserted product id
+$fetchProdSql = "SELECT id FROM product WHERE product_name = '".$product_name."' LIMIT 1";
+
+$result = $db->query($fetchProdSql);
+$product = $result->fetch_assoc();
+$product_id = $product['id'];
+
+// Insert foreign relation prov_prod
+$provSql = "INSERT INTO prov_prod (id_prov, id_prod) VALUES
+    ('".$provider_id."', 
+    '".$product_id."')";
+
+if($db->query($provSql)){
+    echo 'Relação fornecedor/produto efetuada com sucesso!';
+} else{
     echo mysqli_error($db);
 }
 

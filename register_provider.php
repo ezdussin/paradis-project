@@ -3,8 +3,8 @@
 
     if(!isset($_COOKIE['userID'])){
         unset($_SESSION['loginErrorMsg']);
-        unset($_SESSION['registerErrorMsg']);
-        header('Location: http://localhost/account.php');
+        unset($_SESSION['registerUserErrorMsg']);
+        header('Location: http://localhost/login.php');
     }
 ?>
 
@@ -23,12 +23,6 @@
         <div class="container flex">
             <form action="/queries/register_provider_query.php" method='POST' enctype="multipart/form-data">
                 <h3>Cadastrar Fornecedor</h3>
-                <?php
-                if(isset($_SESSION['registerErrorMsg'])){
-                    echo '<p class="warning" style="color: red; border: 2px solid red;">'.$_SESSION['registerErrorMsg'].'</p>';
-                    unset($_SESSION['registerErrorMsg']);
-                }
-                ?>
                 <label for="email">Email:</label><br>
                 <input type="email" name="email" required><br>
                 <label for="name">Nome:</label><br>
