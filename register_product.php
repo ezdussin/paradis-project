@@ -35,20 +35,20 @@
                     <option value="" disabled hidden selected></option>
                     <?php
                     foreach($providers as $provider){
-                        echo '<option value="'.$provider['id'].'">'.$provider['name'].'</select>';
+                        echo '<option value="'.$provider['id'].'">'.$provider['name'].'</option>';
                     }
                     ?>
                 </select>
-                <label for="product_name">Produto:</label><br>
-                <input type="text" name="product_name" required><br>
+                <label for="name">Nome:</label><br>
+                <input type="text" name="name" required><br>
                 <label for="description">Descrição:</label><br>
-                <input type="text" name="description" required><br>
+                <input type="text" name="description"><br>
                 <label for="price">Valor:</label><br>
                 <input type="number" name="price" min=".01" step=".01" required><br>
                 <label for="amount">Quantidade:</label><br>
                 <input type="number" name="amount" min="1" required><br>
                 <label for="thumbnail">Miniatura:</label><br>
-                <input type="file" name="thumbnail"><br>
+                <input type="file" name="thumbnail" required><br>
                 <input type="submit" value="Cadastrar">
             </form>
         </div>

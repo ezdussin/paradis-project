@@ -12,11 +12,11 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS product (
 	id INT AUTO_INCREMENT PRIMARY KEY,
-    product_name varchar(255) NOT NULL,
+    name varchar(255) NOT NULL,
     description varchar(255) NULL,
     price decimal(10, 2) NOT NULL,
     amount INT NOT NULL,
-    thumbnail longblob NULL,
+    thumbnail longblob NOT NULL,
     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 

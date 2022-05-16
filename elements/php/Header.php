@@ -24,7 +24,7 @@ if(isset($_COOKIE['userID'])){
                 <a href="/"><img src="/svg/paradis.svg" alt="Paradis" height="30"></a>
                 <form action="">
                     <img src="/svg/search.svg" alt="Lupa" width="20" height="20">
-                    <input type="text" name="search" placeholder="Pesquisar shows e eventos">
+                    <input type="text" name="search" placeholder="Pesquisar shows, eventos e produtos">
                     <input type="submit" value="PROCURAR">
                 </form>
                 <ul>

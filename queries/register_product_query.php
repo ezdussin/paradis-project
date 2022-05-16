@@ -3,7 +3,7 @@
 include_once('../db/mysqli.php');
 
 $provider_id = $_POST['provider_id'];
-$product_name = $_POST['product_name'];
+$name = $_POST['name'];
 $description = $_POST['description'];
 $price = $_POST['price'];
 $amount = $_POST['amount'];
@@ -25,8 +25,8 @@ if(!empty($imageFileName)){
 }
 
 // Insert product
-$prodSql = "INSERT INTO product (product_name, description, price, amount, thumbnail) VALUES
-    ('".$product_name."', 
+$prodSql = "INSERT INTO product (name, description, price, amount, thumbnail) VALUES
+    ('".$name."', 
     '".$description."', 
     '".$price."',
     '".$amount."',
@@ -39,7 +39,7 @@ if($db->query($prodSql)){
 }
 
 // Fetch just inserted product id
-$fetchProdSql = "SELECT id FROM product WHERE product_name = '".$product_name."' LIMIT 1";
+$fetchProdSql = "SELECT id FROM product WHERE name = '".$name."' LIMIT 1";
 
 $result = $db->query($fetchProdSql);
 $product = $result->fetch_assoc();

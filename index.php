@@ -1,13 +1,10 @@
 <?php
-require_once('./src/PHPMailer.php');
-require_once('./src/SMTP.php');
-require_once('./src/Exception.php');
+include_once("./db/mysqli.php");
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
+$sql = "SELECT * FROM product";
 
-$mail = new PHPMailer(true);
+$products = $db->query($sql);
+$products->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +19,27 @@ $mail = new PHPMailer(true);
         <?php
         include_once './elements/php/Header.php'
         ?>
-        
+        <div class="container-products-page">
+            <h2>Produtos</h2>
+            <div class="container-products-page-content">
+                <!-- <div class="filters-container">
+
+                </div> -->
+                <div class="products-container">
+                    <?php
+                    foreach($products as $product){
+                        echo '<div class="product-block">
+                        <div class="product-block-image">
+                        <a href="#"><img src="'.'data:image/jpg;charset=utf8;base64,'.base64_encode($product['thumbnail']).'" alt="Produto"></a>
+                        </div>
+                        <h4>'.$product['name'].'</h4>
+                        <span>R$ '.$product['price'].'</span>
+                        </div>';
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>  
         <?php
         include_once './elements/php/Footer.php'
         ?>

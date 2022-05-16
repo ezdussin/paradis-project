@@ -102,3 +102,43 @@
 .account-container{
     justify-content: center;
 }
+
+/* Products */
+.container-products-page{
+    margin: 0 2rem;
+}
+
+.container-products-page h2{
+    margin: 2rem;
+    font-size: 2rem;
+}
+
+.container-products-page-content{
+    display:grid;
+    /* grid-template-columns: 20% 80%; */
+}
+
+.container-products-page img{
+    width: 14vw;
+    display: flex;
+    margin: 0 auto;
+    transition: all 0.2s;
+}
+
+.container-products-page img:hover{
+    transform: scale(0.9);
+}
+
+.products-container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.product-block{
+    padding: 1rem;
+}
+
+.products-container span, .products-container h4{
+    padding: 0 6px;
+    margin: .25rem 0;
+}

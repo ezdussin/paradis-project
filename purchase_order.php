@@ -40,16 +40,16 @@
                     <option value="" disabled hidden selected></option>
                     <?php
                     foreach($providers as $provider){
-                        echo '<option value="'.$provider['name'].'">'.$provider['name'].'</select>';
+                        echo '<option value="'.$provider['name'].'">'.$provider['name'].'</option>';
                     }
                     ?>
                 </select>
                 <label for="product_name">Produto:</label><br>
-                <select name="product_name" onchange="calculateTotal(<?php echo $product['price'] ?>)" required>
+                <select name="product_name" required>
                     <option value="" disabled hidden selected></option>
                     <?php
                     foreach($products as $product){
-                        echo '<option value="'.$product['product_name'].'">'.$product['product_name'].'</select>';
+                        echo '<option value="'.$product['name'].'">'.$product['name'].'</option>';
                     }
                     ?>
                 </select>
