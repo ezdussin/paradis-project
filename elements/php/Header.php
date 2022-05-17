@@ -5,7 +5,7 @@ include_once("./db/mysqli.php");
 if(isset($_COOKIE['userID'])){
     $userID = $_COOKIE['userID'];
 
-    $sql = "SELECT * FROM `users` WHERE id = '".$userID."' LIMIT 1";
+    $sql = "SELECT * FROM user WHERE id = '".$userID."' LIMIT 1";
 
     $result = $db->query($sql); 
     $user = $result->fetch_assoc();

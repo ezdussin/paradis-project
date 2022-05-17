@@ -26,13 +26,13 @@ if(!empty($imageFileName)){
     $imageContent = null;
 }
 
-$sql = "INSERT INTO users (name, email, password, avatar) VALUES
+$sql = "INSERT INTO user (name, email, password, avatar) VALUES
     ('".$name."', 
     '".$email."', 
     '".$password."',
     '".$imageContent."')";
 
-$emailSql = "SELECT * FROM users WHERE email = '".$email."'";
+$emailSql = "SELECT * FROM user WHERE email = '".$email."'";
 $result = $db->query($emailSql);
 $emailExists = $result->fetch_all(MYSQLI_ASSOC);
 
@@ -43,8 +43,8 @@ if($emailExists){
 }
 
 if($db->query($sql) && !$emailExists){
-    $sql = "SELECT * FROM `users` WHERE email = '".$email."' AND password = '".$password."' LIMIT 1";
-    $result = $db->query($sql);
+    $userSql = "SELECT * FROM user WHERE email = '".$email."' AND password = '".$password."' LIMIT 1";
+    $result = $db->query($userSql);
     $user = $result->fetch_assoc();
     setcookie("userID", $user['id'], time() + (10 * 365 * 24 * 60 * 60), "/");
     header("Location: http://localhost/account.php");

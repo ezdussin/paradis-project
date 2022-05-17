@@ -26,14 +26,14 @@
         <title>Pedido de Compra | Paradis</title>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="/style.css">
     </head>
     <body>
         <?php
         include_once './elements/php/Header.php'
         ?>
         <div class="container flex">
-            <form action="/queries/purchase_order_query.php" method='POST' enctype="multipart/form-data">
+            <form action="/queries/purchase_order_query.php" method='POST'>
                 <h3>Fazer Pedido de Compra</h3>
                 <label for="provider_name">Fornecedor:</label><br>
                 <select name="provider_name" required>
@@ -66,5 +66,14 @@
         include_once './elements/php/Footer.php'
         ?>
     </body>
-    <script src="/script.js"></script>
+    <script>
+        const amount = document.getElementById('amount');
+        const unit_price = document.getElementById('unit_price');
+        const total = document.getElementById('total');
+
+        calculateTotal = (price) => {
+            unit_price.value = price;
+            total.value = Math.floor((price * amount.value) * 100) / 100;
+        }
+    </script>
 </html>

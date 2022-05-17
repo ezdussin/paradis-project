@@ -34,8 +34,10 @@
                 <label for="pw">Senha:</label><br>
                 <input type="password" name="password" required><br>
                 <input type="submit" value="Login">
-                <a href="/register_user.php">Criar conta</a>
-                <a href="/">Esqueci a senha</a>
+                <div class="form-options">
+                    <a href="/register_user.php">Criar conta</a>
+                    <a href="/password_recover.php">Esqueci a senha</a>
+                </div>
             </form>
         </div>
         <?php

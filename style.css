@@ -29,6 +29,11 @@
     margin: auto;
 }
 
+.container .form-options{
+    display: flex;
+    justify-content: space-between;
+}
+
 .container h3{
     font-size: 2rem;
     margin-bottom: 1rem;

@@ -12,7 +12,7 @@ if(isset($_COOKIE['userID'])){
     header('Location: http://localhost/login.php');
 }
 
-$sql = "SELECT * FROM `users` WHERE id = '".$userID."' LIMIT 1";
+$sql = "SELECT * FROM user WHERE id = '".$userID."' LIMIT 1";
 
 $result = $db->query($sql);
 $user = $result->fetch_assoc();

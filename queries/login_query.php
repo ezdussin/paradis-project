@@ -7,7 +7,7 @@ session_start();
 $email = strtolower($_POST['email']);
 $password = $_POST['password'];
 
-$sql = "SELECT * FROM `users` WHERE email = '".$email."' AND password = '".$password."' LIMIT 1";
+$sql = "SELECT * FROM user WHERE email = '".$email."' AND password = '".$password."' LIMIT 1";
 
 $result = $db->query($sql);
 $user = $result->fetch_assoc();

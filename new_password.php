@@ -1,17 +1,15 @@
 <?php
-    session_start();
+session_start();
 
-    if(isset($_COOKIE['userID'])){
-        unset($_SESSION['loginErrorMsg']);
-        unset($_SESSION['registerUserErrorMsg']);
-        header('Location: http://localhost/account.php');
-    }
+if(!isset($_SESSION['recoverCode'])){
+  header('Location: http://localhost/password_recover.php');
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="pt">
     <head>
-        <title>Cadastro | Paradis</title>
+        <title>Nova Senha | Paradis</title>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/style.css">
@@ -21,25 +19,21 @@
         include_once './elements/php/Header.php'
         ?>
         <div class="container flex">
-            <form action="/queries/register_user_query.php" method='POST' enctype="multipart/form-data">
-                <h3>Cadastrar</h3>
+            <form action="/queries/new_password_query.php" method='POST'>
+                <h3>Informe Nova Senha:</h3>
                 <?php
-                if(isset($_SESSION['registerUserErrorMsg'])){
-                    echo '<p class="warning" style="color: red; border: 2px solid red;">'.$_SESSION['registerUserErrorMsg'].'</p>';
-                    unset($_SESSION['registerUserErrorMsg']);
+                if(isset($_SESSION['newPasswordErrorMsg'])){
+                    echo '<p class="warning" style="color: red; border: 2px solid red;">'.$_SESSION['newPasswordErrorMsg'].'</p>';
+                    unset($_SESSION['newPasswordErrorMsg']);
                 }
                 ?>
-                <label for="email">Email:</label><br>
-                <input type="email" name="email" required><br>
-                <label for="name">Nome:</label><br>
-                <input type="text" name="name" required><br>
-                <label for="password">Senha:</label><br>
+                <label for="code">Código de Recuperação:</label><br>
+                <input type="text" name="recover_code" required><br>
+                <label for="password">Nova Senha:</label><br>
                 <input type="password" name="password" id="password" required><br>
                 <label for="confirm_password">Confirmar Senha:</label><br>
                 <input type="password" name="confirm_password" id="confirm_password" required><br>
-                <label for="avatar">Avatar:</label><br>
-                <input type="file" name="avatar"><br>
-                <input type="submit" value="Cadastrar">
+                <input type="submit" value="Recuperar">
             </form>
         </div>
         <?php

@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS paradis;
 
 USE paradis;
-CREATE TABLE IF NOT EXISTS users (
+CREATE TABLE IF NOT EXISTS user (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name varchar(255) NOT NULL,
     password varchar(255) NOT NULL,

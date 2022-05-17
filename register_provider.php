@@ -14,14 +14,14 @@
         <title>Cadastro Fornecedor | Paradis</title>
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="/style.css">
     </head>
     <body>
         <?php
         include_once './elements/php/Header.php'
         ?>
         <div class="container flex">
-            <form action="/queries/register_provider_query.php" method='POST' enctype="multipart/form-data">
+            <form action="/queries/register_provider_query.php" method='POST'>
                 <h3>Cadastrar Fornecedor</h3>
                 <label for="email">Email:</label><br>
                 <input type="email" name="email" required><br>
