@@ -39,10 +39,11 @@ $user = $result->fetch_assoc();
                 <div class="right-account">
                     <span>Nome: <?php echo isset($user['name']) ? $user['name'] : ''?></span>
                     <span>Email: <?php echo isset($user['email']) ? $user['email'] : ''?></span>
-                    <a href="./queries/logout_query.php">Sair</a>
-                    <a href="./register_provider.php">Cadastrar fornecedor</a>
-                    <a href="./register_product.php">Cadastrar produto</a>
-                    <a href="./purchase_order.php">Fazer pedido de compra</a>
+                    <a href="/queries/logout_query.php">Sair</a>
+                    <a href="/register_provider.php">Cadastrar fornecedor</a>
+                    <a href="/register_product.php">Cadastrar produto</a>
+                    <a href="/register_event.php">Cadastrar evento</a>
+                    <a href="/purchase_order.php">Fazer pedido de compra</a>
                 </div>
             </div>
         </div>

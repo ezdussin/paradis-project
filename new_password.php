@@ -33,7 +33,7 @@ if(!isset($_SESSION['recoverCode'])){
                 <input type="password" name="password" id="password" required><br>
                 <label for="confirm_password">Confirmar Senha:</label><br>
                 <input type="password" name="confirm_password" id="confirm_password" required><br>
-                <input type="submit" value="Recuperar">
+                <input type="submit" value="Mudar Senha">
             </form>
         </div>
         <?php
