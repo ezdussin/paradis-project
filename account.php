@@ -6,8 +6,7 @@ session_start();
 
 if(isset($_COOKIE['userID'])){
     $userID = $_COOKIE['userID'];
-    unset($_SESSION['loginErrorMsg']);
-    unset($_SESSION['registerErrorMsg']);
+    session_destroy();
 } else{
     header('Location: http://localhost/login.php');
 }
@@ -34,7 +33,9 @@ $user = $result->fetch_assoc();
             <h3>Conta</h3>
             <div class="account-container flex">
                 <div class="left-account">
-                    <img src="<?php echo isset($user['avatar']) ? 'data:image/jpg;charset=utf8;base64,'.base64_encode($user['avatar']) : '../../svg/account.svg'; ?>" />
+                <img src="<?php echo !empty($user['avatar']) ? 
+                        'data:image/jpg;charset=utf8;base64,'.base64_encode($user['avatar']) : 
+                        '/svg/account.svg' ?>" alt="Account">
                 </div>
                 <div class="right-account">
                     <span>Nome: <?php echo isset($user['name']) ? $user['name'] : ''?></span>

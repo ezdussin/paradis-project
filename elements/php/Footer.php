@@ -12,7 +12,7 @@
                         <li><a href="#">Fale com a Paradis</a></li>
                         <li><a href="#">Carreiras</a></li>
                         <li><a href="#">Investidores</a></li>
-                        <li><a href="#">Proposito</a></li>
+                        <li><a href="#">Propósito</a></li>
                         <li><a href="#">Notícias</a></li>
                     </ul>
                 </div>

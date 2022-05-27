@@ -1,5 +1,5 @@
 footer{
-    background-color: var(--dark-blue);
+    background-color: var(--footer-bg-color);
     padding: 2rem 20%;
 }
 
@@ -9,6 +9,7 @@ footer{
 
 .links-container li{
     list-style-type: none;
+    margin: .25rem 0;
 }
 
 .links-container li a{
@@ -51,8 +52,8 @@ footer hr{
     text-decoration: none;
 }
 
-.footer-register-button{
-    color: var(--dark-blue);
+.footer-register-button:hover{
+    color: var(--orange);
 }
 
 .footer-register-block span, .footer-register-block a{
@@ -62,7 +63,8 @@ footer hr{
 }
 
 .footer-register-block a{
-    color: var(--dark-blue);
+    color: var(--footer-register-a-color);
+    transition: all .17s ease;
 }
 
 .copyright{

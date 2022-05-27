@@ -14,7 +14,7 @@ if(isset($_COOKIE['userID'])){
 ?>
 
 <!DOCTYPE html>
-<html>
+<html class="dark-mode">
     <head>
         <link rel="stylesheet" href="/elements/css/Header.css">
     </head>
@@ -28,14 +28,15 @@ if(isset($_COOKIE['userID'])){
                     <input type="submit" value="PROCURAR">
                 </form>
                 <ul>
-                    <li class="main-li"><a href="#">Lojas</a></li>
-                    <li class="main-li"><a href="#">Organize</a></li>
+                    <li class="main-li"><a href="/stores.php">Lojas</a></li>
+                    <li class="main-li"><a href="/promote.php">Organize</a></li>
                 </ul>
                 <div class="login-header">
                     <a href="<?php echo isset($user['avatar']) ? '/account.php' : '/login.php' ?>">
-                        <img src="<?php echo isset($user['avatar']) ? 
+                        <img src="<?php echo !empty($user['avatar']) ? 
                         'data:image/jpg;charset=utf8;base64,'.base64_encode($user['avatar']) : 
                         '/svg/account.svg' ?>" alt="Account" width="40" height="40">
+                        <?php echo isset($user) ? '' : "<span>Entrar</span>" ?>
                     </a>                
                 </div>
             </nav>

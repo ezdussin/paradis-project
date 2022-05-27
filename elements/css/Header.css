@@ -1,7 +1,7 @@
 header{
     display: flex;
     height: 80px;
-    background: var(--blue);
+    background: var(--header-bg-color);
     width: 100%;
 }
 
@@ -20,9 +20,15 @@ header a, header nav{
 }
 
 .login-header a{
+    display: flex;
     text-decoration: none;
-    color: black;
-    font-size: 1.25rem;
+    color: var(--text-color);
+}
+
+.login-header span{
+    padding: 0 .5rem;
+    color: white;
+    margin: auto 0;
 }
 
 .login-header img{

@@ -52,19 +52,19 @@ try {
     letter-spacing: 1px;
     border-radius: 15px; 
     width: 600px;">
-       <span style="display: block;
-       color: white;
-       padding: 10px 0 20px 0;">
-       Seu código para recuperação de senha:</span>
-       <span style="color: white; 
-       font-size: 72px;
-       display: block;
-       background-color: #1d0643; 
-       padding: 15px; 
-       border-radius: 15px; 
-       text-decoration: none;
-       letter-spacing: 40px;">
-       '.$recoverCode.'</span>
+    <img src="https://i.imgur.com/duc2Iw8.png" alt="Paradis" height="43">
+    <span style="display: block;
+    color: white;
+    padding: 10px 0 20px 0;">
+    Seu código para recuperação de senha:</span>
+    <span style="color: white; 
+    font-size: 72px;
+    display: block;
+    background-color: #1d0643; 
+    padding: 15px; 
+    border-radius: 15px; 
+    text-decoration: none;
+    letter-spacing: 40px;">'.$recoverCode.'</span>
 </div>';
 	$mail->AltBody = 'Clique para ver seu código de recuperação de senha';
  

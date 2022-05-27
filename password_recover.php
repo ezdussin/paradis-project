@@ -2,8 +2,7 @@
 session_start();
 
 if(isset($_SESSION['recoverCode'])){
-    unset($_SESSION['recoverCode']);
-    unset($_SESSION['email']);
+    session_destroy();
 }
 ?>
 

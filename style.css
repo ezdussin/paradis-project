@@ -5,6 +5,31 @@
     --yellow: #FFB703;
     --orange: #FB8500;
     --purple: #1d0643;
+    --gray: #6c757d;
+}
+
+.light-mode:root{
+    --bg-color: white;
+    --text-color: black;
+    --header-bg-color: var(--blue);
+    --footer-bg-color: var(--dark-blue);
+    --href-color: var(--blue);
+    --input-color: black;
+    --submit-bg-color: var(--purple);
+    --submit-bg-color-alpha: #1d0643dd;
+    --footer-register-a-color: var(--footer-bg-color);
+}
+
+.dark-mode:root{
+    --bg-color: #121212;
+    --text-color: white;
+    --header-bg-color: var(--dark-blue);
+    --footer-bg-color: var(--purple);
+    --href-color: var(--blue);
+    --input-color: white;
+    --submit-bg-color: var(--purple);
+    --submit-bg-color-alpha: #1d0643dd;
+    --footer-register-a-color: var(--footer-bg-color);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
@@ -14,13 +39,18 @@
     margin: 0;
     padding: 0;
     font-family: 'Ubuntu', sans-serif;
+    color: var(--text-color);
+}
+
+html{
+    background-color: var(--bg-color);
 }
 
 /* Container */
 .container{
     justify-content: center;
     margin: 0 2rem;
-    padding: 200px 0;
+    padding: 150px 0;
 }
 
 .container form{
@@ -41,42 +71,85 @@
 }
 
 .container label,
-.container input:not([type='submit']){
-    padding: .1rem;
+.container input:not([type='submit']),
+.container textarea{
     margin-bottom: .5rem;
     width: 100%;
 }
 
+.container input:not([type='submit'], [type='file']),
+.container select{
+    padding: 6px .1rem;
+    color: var(--input-color);
+    border: none;
+    border-bottom: 2px solid var(--text-color);
+    background-color: transparent;
+}
+
+.container textarea{
+    margin: 6px 0;
+    resize: vertical;
+    padding: 6px 1rem;
+    color: var(--input-color);
+    border: 2px solid var(--text-color);
+    border-radius: 15px;
+    background-color: transparent;
+}
+
+.container select option{
+    background-color: var(--bg-color);
+}
+
+.container input:not([type='submit'], [type='file']):focus{
+    outline: none;
+}
+
 .container input[type='submit']{
-    padding: .1rem;
+    padding: .5rem .1rem;
     margin: .5rem 0;
+    cursor: pointer;
+    background-color: var(--submit-bg-color);
+    color: white;
+    border: none;
+    border-radius: 15px;
     width: 100%;
     font-size: 1rem;
+    transition: all .17s ease;
+}
+
+input[type="number"] {
+    -webkit-appearance: textfield;
+       -moz-appearance: textfield;
+            appearance: textfield;
+  }
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+  }
+
+.container input[type='submit']:hover{
+    background-color: var(--submit-bg-color-alpha);
 }
 
 .container select{
-    padding: .1rem;
     margin-bottom: .5rem;
     width: 100%;
 }
 
 .container a{
     margin: .25rem 0;
+    color: var(--href-color);
     font-size: .8rem;
+    text-decoration: none;
+}
+
+.container a:hover{
+    text-decoration: underline;
 }
 
 .container span{
     margin: 2px 0;
     width: 100%;
-}
-
-.container table{
-    background-color: white;
-    margin: 1rem auto;
-    border: 2px solid black;
-    border-collapse: collapse;
-    width: 100%;
-    letter-spacing: 1px;
 }
 
 .flex{
@@ -120,6 +193,7 @@
     padding-bottom: 20px;
     margin: 0 2rem;
     font-size: 2rem;
+    color: var(--text-color);
 }
 
 .container-content a{
@@ -132,8 +206,17 @@
     display: flex;
     max-width: 100%;
     margin: 0 auto;
+    object-fit: cover;
     border-radius: 15px;
     transition: all 0.2s;
+}
+
+.products-container img{
+    height: 208px;
+}
+
+.events-container img{
+    height: 148px;
 }
 
 .container-content img:hover{
@@ -172,4 +255,32 @@
 
 .event-block{
     padding: 1rem;
+}
+
+.secondary-text{
+    color: var(--gray);
+    text-align: justify;
+    font-size: .9rem;
+    padding-bottom: 160px;
+    margin: 0 1rem;
+}
+
+.organize-button-block{
+    display: flex;
+    margin: 20px 0;
+}
+
+.organize-button{
+    background-color: var(--submit-bg-color);
+    border-radius: 40px;
+    padding: 10px 2rem;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-weight: 900;
+    letter-spacing: 2px;
+    transition: all .17s ease;
+}
+
+.organize-button:hover{
+    color: var(--orange);
 }

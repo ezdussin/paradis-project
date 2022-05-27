@@ -2,8 +2,7 @@
     session_start();
 
     if(isset($_COOKIE['userID'])){
-        unset($_SESSION['loginErrorMsg']);
-        unset($_SESSION['registerErrorMsg']);
+        session_destroy();
         header('Location: http://localhost/account.php');
     }
 ?>
