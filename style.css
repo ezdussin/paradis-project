@@ -157,7 +157,7 @@ input[type="number"] {
 }
 
 .warning{
-    padding: 2px;
+    padding: 4px;
     border-radius: 4px;
     margin: .5rem 0;
     text-align: center;
@@ -261,7 +261,7 @@ input[type="number"] {
     color: var(--gray);
     text-align: justify;
     font-size: .9rem;
-    padding-bottom: 160px;
+    padding-bottom: 80px;
     margin: 0 1rem;
 }
 

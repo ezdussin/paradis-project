@@ -24,9 +24,12 @@ if(isset($_SESSION['recoverCode'])){
                 <?php
                 if(isset($_SESSION['passwordRecoverErrorMsg'])){
                     echo '<p class="warning" style="color: red; border: 2px solid red;">'.$_SESSION['passwordRecoverErrorMsg'].'</p>';
-                    unset($_SESSION['passwordRecoverErrorMsg']);
+                    session_destroy();
                 }
                 ?>
+                <p class="secondary-text">
+                    Um email será enviado para você com seu codigo de recuperação.
+                </p>
                 <label for="email">Email:</label><br>
                 <input type="email" name="email" required><br>
                 <input type="submit" value="Recuperar">

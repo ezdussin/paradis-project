@@ -29,6 +29,15 @@
         <div class="container flex">
             <form action="/queries/register_product_query.php" method='POST' enctype="multipart/form-data">
                 <h3>Cadastrar Produto</h3>
+                <?php
+                if(isset($_SESSION['productMsg'])){
+                    echo '<p class="warning" style="color: green; border: 2px solid green;">'.$_SESSION['productMsg'].'</p>';
+                    session_destroy();
+                } else if(isset($_SESSION['productErrorMsg'])) {
+                    echo '<p class="warning" style="color: red; border: 2px solid red;">'.$_SESSION['productErrorMsg'].'</p>';
+                    session_destroy();
+                }
+                ?>
                 <label for="provider_id">Fornecedor:</label><br>
                 <select name="provider_id" required>
                     <option value="" disabled hidden selected></option>

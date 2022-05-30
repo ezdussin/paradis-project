@@ -22,6 +22,15 @@
         <div class="container flex">
             <form action="/queries/register_provider_query.php" method='POST'>
                 <h3>Cadastrar Fornecedor</h3>
+                <?php
+                if(isset($_SESSION['providerMsg'])){
+                    echo '<p class="warning" style="color: green; border: 2px solid green;">'.$_SESSION['providerMsg'].'</p>';
+                    session_destroy();
+                } else if(isset($_SESSION['providerErrorMsg'])) {
+                    echo '<p class="warning" style="color: red; border: 2px solid red;">'.$_SESSION['providerErrorMsg'].'</p>';
+                    session_destroy();
+                }
+                ?>
                 <label for="email">Email:</label><br>
                 <input type="email" name="email" required><br>
                 <label for="name">Nome:</label><br>

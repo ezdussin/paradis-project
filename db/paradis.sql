@@ -46,14 +46,17 @@ CREATE TABLE IF NOT EXISTS purchase_order (
     product_name varchar(255) NOT NULL,
     amount INT NOT NULL,
     unit_price decimal(10, 2) NOT NULL,
-    total_price decimal(10, 2) NOT NULL
+    total_price decimal(10, 2) NOT NULL,
+    reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS prov_prod (
+    id INT AUTO_INCREMENT PRIMARY KEY,
     id_prov INT NOT NULL,
     id_prod INT NOT NULL,
     FOREIGN KEY (id_prov) REFERENCES provider (ID),
-    FOREIGN KEY (id_prod) REFERENCES product (ID)
+    FOREIGN KEY (id_prod) REFERENCES product (ID),
+    reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS message (

@@ -2,6 +2,8 @@
 
 include_once('../db/mysqli.php');
 
+session_start();
+
 $name = $_POST['name'];
 $description = $_POST['description'];
 $price = $_POST['price'];
@@ -31,21 +33,14 @@ $eventSql = "INSERT INTO event (name, description, price, amount, thumbnail) VAL
     '".$imageContent."')";
 
 if($db->query($eventSql)){
-    echo 'Evento registrado com sucesso!<br>';
+    $_SESSION['eventMsg'] = 'Evento registrado com sucesso!';
+    header('Location: http://localhost/register_event.php');
 } else{
-    echo mysqli_error($db);
+    $_SESSION['eventErrorMsg'] = 'Não foi possível registrar o evento...';
+    header('Location: http://localhost/register_event.php');
 }
 
 $db->close();
-
-?>
-
-<br>
-<br>
-<a href="/account.php">Voltar Para Conta</a><br>
-<a href="/register_event.php">Registrar Outro Evento</a>
-
-<?php
 
 die();
 

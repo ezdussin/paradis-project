@@ -24,6 +24,15 @@
         <div class="container flex">
             <form action="/queries/register_event_query.php" method='POST' enctype="multipart/form-data">
                 <h3>Cadastrar Evento</h3>
+                <?php
+                if(isset($_SESSION['eventMsg'])){
+                    echo '<p class="warning" style="color: green; border: 2px solid green;">'.$_SESSION['eventMsg'].'</p>';
+                    session_destroy();
+                } else if(isset($_SESSION['eventErrorMsg'])) {
+                    echo '<p class="warning" style="color: red; border: 2px solid red;">'.$_SESSION['eventErrorMsg'].'</p>';
+                    session_destroy();
+                }
+                ?>
                 <label for="name">Nome:</label><br>
                 <input type="text" name="name" required><br>
                 <label for="description">Descrição:</label><br>

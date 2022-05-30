@@ -25,6 +25,7 @@ if($db->query($sql)){
 }
 
 $db->close();
+
 die();
 
 ?>

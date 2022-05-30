@@ -25,7 +25,7 @@
                 <?php
                 if(isset($_SESSION['loginErrorMsg'])){
                     echo '<p class="warning" style="color: red; border: 2px solid red;">'.$_SESSION['loginErrorMsg'].'</p>';
-                    unset($_SESSION['loginErrorMsg']);
+                    session_destroy();
                 }
                 ?>
                 <label for="name">Email:</label><br>

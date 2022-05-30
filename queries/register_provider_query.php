@@ -2,6 +2,8 @@
 
 include_once('../db/mysqli.php');
 
+session_start();
+
 $email = $_POST['email'];
 $name = $_POST['name'];
 $telephone = $_POST['telephone'];
@@ -15,22 +17,24 @@ $sql = "INSERT INTO provider (email, name, telephone, cnpj, address) VALUES
     '".$cnpj."',
     '".$address."')";
 
-if($db->query($sql)){
-    echo 'Fornecedor registrado com sucesso!';
-} else{
-    echo mysqli_error($db);
+$emailSql = "SELECT * FROM provider WHERE email = '".$email."' LIMIT 1";
+$result = $db->query($emailSql);
+$emailExists = $result->fetch_assoc();
+
+if(!$emailExists){
+    if($db->query($sql)){
+        $_SESSION['providerMsg'] = 'Fornecedor registrado com sucesso!';
+        header('Location: http://localhost/register_provider.php');
+    } else{
+        $_SESSION['providerErrorMsg'] = 'Não foi possível registrar o fornecedor...';
+        header('Location: http://localhost/register_provider.php');
+    }
+} else {
+    $_SESSION['providerErrorMsg'] = 'Este email já foi cadastrado...';
+    header('Location: http://localhost/register_provider.php');
 }
 
 $db->close();
-
-?>
-
-<br>
-<br>
-<a href="/account.php">Voltar Para Conta</a><br>
-<a href="/register_provider.php">Registrar Outro Fornecedor</a>
-
-<?php
 
 die();
 

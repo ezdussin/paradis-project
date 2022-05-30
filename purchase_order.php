@@ -34,12 +34,21 @@
         <div class="container flex">
             <form action="/queries/purchase_order_query.php" method='POST'>
                 <h3>Fazer Pedido de Compra</h3>
+                <?php
+                if(isset($_SESSION['orderMsg'])){
+                    echo '<p class="warning" style="color: green; border: 2px solid green;">'.$_SESSION['orderMsg'].'</p>';
+                    session_destroy();
+                } else if(isset($_SESSION['orderErrorMsg'])) {
+                    echo '<p class="warning" style="color: red; border: 2px solid red;">'.$_SESSION['orderErrorMsg'].'</p>';
+                    session_destroy();
+                }
+                ?>
                 <label for="provider_name">Fornecedor:</label><br>
                 <select name="provider_name" required>
                     <option value="" disabled hidden selected></option>
                     <?php
                     foreach($providers as $provider){
-                        echo '<option value="'.$provider['name'].'">'.$provider['name'].'</option>';
+                        echo '<option value="'.$provider['id'].'">'.$provider['name'].'</option>';
                     }
                     ?>
                 </select>

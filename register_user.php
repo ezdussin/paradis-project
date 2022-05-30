@@ -25,7 +25,7 @@
                 <?php
                 if(isset($_SESSION['registerUserErrorMsg'])){
                     echo '<p class="warning" style="color: red; border: 2px solid red;">'.$_SESSION['registerUserErrorMsg'].'</p>';
-                    unset($_SESSION['registerUserErrorMsg']);
+                    session_destroy();
                 }
                 ?>
                 <label for="email">Email:</label><br>
@@ -51,7 +51,7 @@
 
         function validatePassword(){
           if(password.value != confirm_password.value) {
-            confirm_password.setCustomValidity("Passwords Don't Match");
+            confirm_password.setCustomValidity("A senha e a confirmação da senha precisam coincidir.");
           } else {
             confirm_password.setCustomValidity('');
           }

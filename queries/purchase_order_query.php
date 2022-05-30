@@ -2,6 +2,8 @@
 
 include_once('../db/mysqli.php');
 
+session_start();
+
 $provider_name = $_POST['provider_name'];
 $product_name = $_POST['product_name'];
 $amount = $_POST['amount'];
@@ -16,21 +18,14 @@ $sql = "INSERT INTO purchase_order (provider_name, product_name, amount, total_p
     '".$unit_price."')";
 
 if($db->query($sql)){
-    echo 'Pedido efetuado com sucesso!';
+    $_SESSION['orderMsg'] = 'Pedido de compra efetuado com sucesso!';
+    header('Location: http://localhost/purchase_order.php');
 } else{
-    echo mysqli_error($db);
+    $_SESSION['orderErrorMsg'] = 'Não foi possível registrar o fornecedor...';
+    header('Location: http://localhost/purchase_order.php');
 }
 
 $db->close();
-
-?>
-
-<br>
-<br>
-<a href="/account.php">Voltar Para Conta</a><br>
-<a href="/purchase_order.php">Fazer Outro Pedido de Compra</a>
-
-<?php
 
 die();
 
